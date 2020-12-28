@@ -1,0 +1,27 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.header {
+  margin: 2rem 0;
+  font-size: 1.5rem;
+  font-family: 'Poppins';
+  color: black;
+}
+
+.header-brand {
+  font-weight: bold;
+}
+
+.main {
+  min-height: 100vh;
+}
+
+.footer {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: var(--gray);
+  text-align: center;
+  margin: 1.75rem;
+}
