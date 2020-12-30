@@ -8,10 +8,18 @@
 }
 
 .image-container {
-  width: 90px;
-  height: 90px;
   display: flex;
   margin: 0.75rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.image-placeholder {
+  font-family: 'Roboto';
+  background-color: var(--bg);
+  color: #bdbdbd;
+  width: 100%;
+  text-align: center;
 }
 
 .image-container img {
@@ -29,4 +37,40 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.title-line {
+  display: flex;
+  align-items: center;
+}
+
+.title-line h2 {
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.job-type {
+  border: 1px solid var(--text);
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 0.5rem 0.3rem;
+}
+
+.job-description {
+  display: flex;
+}
+
+.apply {
+  min-width: 20%;
+  margin-right: 3rem;
+}
+
+.apply-header {
+  text-transform: uppercase;
+  color: var(--gray);
+  font-family: 'Poppins';
+  font-weight: bold;
+  line-height: 0.75rem;
 }

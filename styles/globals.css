@@ -6,6 +6,7 @@
   --text: #334680;
   --gray: #b9bdcf;
   --bg: #f6f7fb;
+  --link: #1e86ff;
 }
 
 html,
@@ -19,7 +20,7 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--link);
   text-decoration: none;
 }
 
