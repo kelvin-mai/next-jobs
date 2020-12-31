@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { GithubJob } from '../../lib/api';
+import { ClockIcon, GlobeIcon } from '../common/icons';
 import { JobImage } from './job-image';
 
 import css from './job.module.css';
@@ -24,9 +25,13 @@ export const JobCard: React.FC<JobCardProps> = ({
         <h3>{title}</h3>
         <div className={css['info-line']}>
           <span className={css['job-type']}>{type}</span>
-          <div>
-            <span>{location}</span>
-            <span>{created_at}</span>
+          <div className={css['icon-line']}>
+            <span>
+              <GlobeIcon /> {location}
+            </span>
+            <span className="ml-1">
+              <ClockIcon /> {created_at}
+            </span>
           </div>
         </div>
       </div>

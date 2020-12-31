@@ -27,6 +27,11 @@
   align-self: center;
 }
 
+.info {
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
 .info h2 {
   font-size: 0.75rem;
   font-family: 'Roboto';
@@ -49,6 +54,12 @@
   font-weight: bold;
   font-size: 1.5rem;
   margin-right: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sub-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .job-type {
@@ -56,10 +67,6 @@
   border-radius: 4px;
   font-weight: bold;
   padding: 0.5rem 0.3rem;
-}
-
-.job-description {
-  display: flex;
 }
 
 .apply {
@@ -73,4 +80,16 @@
   font-family: 'Poppins';
   font-weight: bold;
   line-height: 0.75rem;
+}
+
+.icon-line {
+  color: var(--gray);
+  font-size: 0.8rem;
+  display: flex;
+}
+
+.icon-line svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
 }

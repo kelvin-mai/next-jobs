@@ -36,3 +36,11 @@ h5 {
   font-size: inherit;
   font-weight: normal;
 }
+
+.flex {
+  display: flex;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
