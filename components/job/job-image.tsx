@@ -1,4 +1,9 @@
-import { DetailedHTMLProps, ImgHTMLAttributes, useState } from 'react';
+import {
+  DetailedHTMLProps,
+  ImgHTMLAttributes,
+  useEffect,
+  useState,
+} from 'react';
 
 import css from './job.module.css';
 
@@ -12,6 +17,10 @@ export interface JobImageProps
 
 export const JobImage: React.FC<JobImageProps> = ({ size, ...props }) => {
   // onError doesn't work as intended with SSR
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
   const [loaded, setLoaded] = useState(false);
   const containerStyle = {
     height: size,
@@ -33,11 +42,13 @@ export const JobImage: React.FC<JobImageProps> = ({ size, ...props }) => {
           not found
         </div>
       )}
-      <img
-        {...props}
-        style={{ display: shouldDisplay }}
-        onLoad={handleLoadImage}
-      />
+      {hydrated && (
+        <img
+          {...props}
+          style={{ display: shouldDisplay }}
+          onLoad={handleLoadImage}
+        />
+      )}
     </div>
   );
 };

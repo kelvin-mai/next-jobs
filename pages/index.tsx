@@ -1,20 +1,15 @@
 import { useState, useEffect } from 'react';
 
+import { API_URL, GithubJob } from '../lib/api';
 import { Layout } from '../components/layout';
 import { SearchBox } from '../components/search';
 import { JobCard } from '../components/job';
 
-export default function Home() {
-  const [jobs, setJobs] = useState([]);
+interface HomeProps {
+  jobs: GithubJob[];
+}
 
-  useEffect(() => {
-    fetch('/api')
-      .then((res) => res.json())
-      .then(setJobs);
-  }, []);
-
-  console.log(jobs);
-
+export const Home: React.FC<HomeProps> = ({ jobs }) => {
   return (
     <Layout title="Home">
       <SearchBox />
@@ -23,4 +18,24 @@ export default function Home() {
       ))}
     </Layout>
   );
-}
+};
+
+export const getServerSideProps = async () => {
+  try {
+    const data = await fetch(`${API_URL}.json`);
+    const json = await data.json();
+    return {
+      props: {
+        jobs: json,
+      },
+    };
+  } catch (err) {
+    return {
+      props: {
+        jobs: [],
+      },
+    };
+  }
+};
+
+export default Home;
