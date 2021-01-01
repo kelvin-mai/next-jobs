@@ -25,3 +25,32 @@
   text-align: center;
   margin: 1.75rem;
 }
+
+.not-found {
+  font-family: 'Space Mono';
+  min-height: 70vh;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .not-found {
+    flex-direction: column;
+  }
+}
+
+.not-found h2 {
+  font-weight: bold;
+  font-size: 4rem;
+  color: var(--black);
+}
+
+.not-found p {
+  font-size: 1.5rem;
+}
+
+.back-button {
+  background-color: var(--black);
+  color: white;
+  padding: 1.5rem 3rem;
+  text-transform: uppercase;
+}

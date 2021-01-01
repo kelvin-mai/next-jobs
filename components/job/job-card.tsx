@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { GithubJob } from '../../lib/api';
+import { fromToday } from '../../lib/date';
 import { ClockIcon, GlobeIcon } from '../common/icons';
 import { JobImage } from './job-image';
 
@@ -17,7 +18,7 @@ export const JobCard: React.FC<JobCardProps> = ({
   location,
   created_at,
 }) => (
-  <Link href={`/${id}`}>
+  <Link href={`/job/${id}`}>
     <div className={css.card}>
       <JobImage src={company_logo} alt={company} size={90} />
       <div className={css.info}>
@@ -30,7 +31,7 @@ export const JobCard: React.FC<JobCardProps> = ({
               <GlobeIcon /> {location}
             </span>
             <span className="ml-1">
-              <ClockIcon /> {created_at}
+              <ClockIcon /> {fromToday(created_at)}
             </span>
           </div>
         </div>

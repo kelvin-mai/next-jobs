@@ -8,6 +8,7 @@ export interface JobHeader {
   type: string;
   company: string;
   logo: string;
+  daysAgo: string;
 }
 
 export const JobHeader: React.FC<JobHeader> = ({
@@ -16,6 +17,7 @@ export const JobHeader: React.FC<JobHeader> = ({
   type,
   company,
   logo,
+  daysAgo,
 }) => (
   <>
     <div className={css['title-line']}>
@@ -23,7 +25,7 @@ export const JobHeader: React.FC<JobHeader> = ({
       <div className={css['job-type']}>{type}</div>
     </div>
     <div className={css['icon-line']}>
-      <ClockIcon /> 5 days ago
+      <ClockIcon /> {daysAgo}
     </div>
     <div className="flex">
       <JobImage src={logo} alt={company} size={50} />

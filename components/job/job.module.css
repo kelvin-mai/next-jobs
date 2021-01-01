@@ -93,3 +93,13 @@
   height: 1rem;
   margin-right: 0.5rem;
 }
+
+.job-description {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .job-description {
+    flex-direction: column;
+  }
+}
