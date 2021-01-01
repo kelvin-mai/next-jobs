@@ -47,6 +47,14 @@
 .title-line {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .title-line {
+    flex-direction: column;
+    align-items: start;
+  }
 }
 
 .title-line h2 {

@@ -46,3 +46,26 @@ h5 {
 .ml-1 {
   margin-left: 1rem;
 }
+
+.full-width {
+  width: 100%;
+}
+
+.responsive {
+  display: flex;
+}
+
+.search-widgets {
+  min-width: 30%;
+  margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .responsive {
+    flex-direction: column;
+  }
+  .search-widgets {
+    margin-right: 0;
+    width: 100%;
+  }
+}
