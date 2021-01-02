@@ -1,0 +1,50 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.header {
+  font-size: 1.5rem;
+  font-family: "Poppins";
+  color: black;
+  margin: 2rem 0;
+}
+
+.header-brand {
+  font-weight: bold;
+}
+
+.main {
+  min-height: 70vh;
+}
+
+.footer {
+  font-family: "Montserrat";
+  font-weight: 600;
+  text-align: center;
+  color: var(--gray);
+  margin: 1.75rem;
+}
+
+.not-found {
+  font-family: "Space Mono";
+  min-height: 70vh;
+  display: flex;
+}
+
+.not-found h2 {
+  font-weight: bold;
+  font-size: 4rem;
+  color: var(--black);
+}
+
+.not-found p {
+  font-size: 1.5rem;
+}
+
+.back-button {
+  background-color: var(--black);
+  color: white;
+  padding: 1.5rem 3rem;
+  text-transform: uppercase;
+}
