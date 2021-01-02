@@ -16,7 +16,7 @@ export const NotFoundLayout = () => {
             <span className={css['header-brand']}>Github</span> Jobs
           </h1>
         </header>
-        <main className={css['not-found']} style={{ display: 'flex' }}>
+        <main className={css['not-found']}>
           <Image src="/assets/Scarecrow.png" width={655} height={395} />
           <div>
             <h2>I have bad news for you</h2>

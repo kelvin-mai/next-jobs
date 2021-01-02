@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { API_URL, GithubJob } from '../lib/api';
 import { Layout } from '../components/layout';
 import { SearchBox, SearchLocation } from '../components/search';
+import { Pagination } from '../components/pagination';
 import { JobCard } from '../components/job';
 import { SearchType } from '../components/search/search-type';
+import { Loader } from '../components/common';
 
 interface HomeProps {
   jobs: GithubJob[];
@@ -12,10 +14,12 @@ interface HomeProps {
 
 export const Home: React.FC<HomeProps> = (props) => {
   const [jobs, setJobs] = useState(props.jobs);
+  const [loading, setLoading] = useState(false);
   const [fullTime, setFullTime] = useState(false);
   const [location, setLocation] = useState('');
   const [page, setPage] = useState(0);
-  const handleSearch = (term: string) => {
+  const handleSearch = (term?: string) => {
+    setLoading(true);
     fetch('/api', {
       method: 'post',
       body: JSON.stringify({
@@ -27,7 +31,12 @@ export const Home: React.FC<HomeProps> = (props) => {
     })
       .then((res) => res.json())
       .then(setJobs)
+      .then(() => setLoading(false))
       .catch(console.log);
+  };
+  const handlePageChange = (count: number) => {
+    setPage(count - 1);
+    handleSearch();
   };
   return (
     <Layout title="Home">
@@ -38,9 +47,17 @@ export const Home: React.FC<HomeProps> = (props) => {
           <SearchLocation location={location} onChange={setLocation} />
         </div>
         <div className="full-width">
-          {jobs.map((job) => (
-            <JobCard key={job.id} {...job} />
-          ))}
+          {loading ? (
+            <Loader />
+          ) : (
+            jobs.map((job) => <JobCard key={job.id} {...job} />)
+          )}
+          <Pagination
+            current={page + 1}
+            onChange={handlePageChange}
+            hasNext={jobs.length === 50}
+            disabled={loading}
+          />
         </div>
       </div>
     </Layout>
