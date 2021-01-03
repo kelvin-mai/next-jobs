@@ -1,12 +1,19 @@
 import { API_URL, GithubJob } from "../lib/api";
 import { Layout } from "../components/layout";
+import { JobCard } from "../components/job";
 
 interface HomeProps {
   jobs: GithubJob[];
 }
 
 export default function Home(props: HomeProps) {
-  return <Layout title="Home">Home page works!</Layout>;
+  return (
+    <Layout title="Home">
+      {props.jobs.map((job) => (
+        <JobCard key={job.id} {...job} />
+      ))}
+    </Layout>
+  );
 }
 
 export const getServerSideProps = async () => {
