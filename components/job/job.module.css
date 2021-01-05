@@ -62,3 +62,52 @@
   width: 100%;
   text-align: center;
 }
+
+.apply {
+  min-width: 20%;
+  margin-right: 3rem;
+}
+
+.apply-header {
+  text-transform: uppercase;
+  color: var(--gray);
+  font-family: "Poppins";
+  font-weight: bold;
+  line-height: 0.75;
+}
+
+.title-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .title-line {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+.title-line h2 {
+  font-family: "Roboto";
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.sub-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.job-description {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .job-description {
+    flex-direction: column;
+  }
+}

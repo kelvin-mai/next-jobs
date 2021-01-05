@@ -17,7 +17,7 @@ export const JobCard: React.FC<JobCardProps> = ({
   location,
   created_at,
 }) => (
-  <Link href={`/page/${id}`}>
+  <Link href={`/job/${id}`}>
     <div className={css.card}>
       <JobImage src={company_logo} alt={company} size={90} />
       <div className={css.info}>
