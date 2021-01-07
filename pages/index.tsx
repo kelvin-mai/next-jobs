@@ -1,35 +1,44 @@
 import { API_URL, GithubJob } from "../lib/api";
 import { Layout } from "../components/layout";
 import { JobCard } from "../components/job";
-import { useEffect } from "react";
+import { SearchBox, SearchType, SearchLocation } from "../components/search";
+import { useState } from "react";
 
 interface HomeProps {
   jobs: GithubJob[];
 }
 
 export default function Home(props: HomeProps) {
-  const handleSearch = () => {
+  const [jobs, setJobs] = useState<GithubJob[]>(props.jobs);
+  const [type, setType] = useState(false);
+  const [location, setLocation] = useState("");
+  const handleSearch = (term: string) => {
     fetch("/api", {
       method: "post",
       body: JSON.stringify({
-        fullTime: true,
-        location: "california",
-        page: 0,
-        term: "react",
+        term,
+        type,
+        location,
       }),
     })
       .then((res) => res.json())
-      .then(console.log)
+      .then(setJobs)
       .catch(console.log);
   };
-  useEffect(() => {
-    handleSearch();
-  }, []);
   return (
     <Layout title="Home">
-      {props.jobs.map((job) => (
-        <JobCard key={job.id} {...job} />
-      ))}
+      <SearchBox onSearch={handleSearch} />
+      <div className="responsive">
+        <div className="search-widgets">
+          <SearchType checked={type} onChange={setType} />
+          <SearchLocation location={location} onChange={setLocation} />
+        </div>
+        <div className="full-width">
+          {jobs.map((job) => (
+            <JobCard key={job.id} {...job} />
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 }

@@ -38,3 +38,27 @@ h5 {
   font-size: inherit;
   font-weight: normal;
 }
+
+.full-width {
+  width: 100%;
+}
+
+.search-widgets {
+  min-width: 30%;
+  margin-right: 1rem;
+}
+
+.responsive {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .responsive {
+    flex-direction: column;
+  }
+
+  .search-widgets {
+    margin-right: 0;
+    width: 100%;
+  }
+}
