@@ -1,0 +1,35 @@
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flex {
+  display: flex;
+}
+
+.pagination-button {
+  height: 3rem;
+  width: 3rem;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  color: var(--gray);
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-button:hover {
+  border-color: var(--link);
+  color: var(--link);
+}
+
+.pagination-button.more {
+  border: none;
+}
+
+.pagination-button.active {
+  background-color: var(--link);
+  border-color: var(--link);
+  color: white;
+}
